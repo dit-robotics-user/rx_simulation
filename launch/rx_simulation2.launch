@@ -1,0 +1,11 @@
+<launch>
+
+	<node pkg="rx_simulation" type="rxSimulation2" name="rxSimulation2" output="screen" respawn="true" >
+	</node>
+	
+	<node pkg="rx_simulation" type="keyboardInput2" name="keyboardInput2" output="screen" respawn="true" >
+	</node>
+
+
+
+</launch>
