@@ -22,7 +22,7 @@ class sub_class{
 
     private:
         ros::NodeHandle n;
-		ros::Publisher pubIntArray = n.advertise<std_msgs::Int32MultiArray>("rx_ST1", 1);
+		ros::Publisher pubIntArray = n.advertise<std_msgs::Int32MultiArray>("rxST1", 1);
         ros::Subscriber ArraySub = n.subscribe<std_msgs::Int32MultiArray>("intKey1", 1, &sub_class::SubArrayCallback,this);     
         std_msgs::Int32MultiArray numArray;
 };
