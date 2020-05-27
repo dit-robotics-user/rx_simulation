@@ -17,7 +17,7 @@ class sub_class{
         void SubArrayCallback(const std_msgs::Int32MultiArray::ConstPtr& msg);
         void publish();
         
-        sub_class();
+        sub_class(int num[4]);
         ~sub_class(){};
 
     private:
@@ -27,10 +27,10 @@ class sub_class{
         std_msgs::Int32MultiArray numArray;
 };
 
-sub_class::sub_class(){
+sub_class::sub_class(int num[4]){
     for(int i = 0; i < 4; i++)
 	{
-		this->numArray.data.push_back(0);
+		this->numArray.data.push_back(num[i]);
 	}
 }
 
@@ -39,10 +39,6 @@ void sub_class::publish(){
 }
 
 void sub_class::SubArrayCallback(const std_msgs::Int32MultiArray::ConstPtr& msg){
-	//~ for(int i = 0; i < 4; i++)
-	//~ {
-		//~ this->numArray.data[i] = msg->data[i];
-	//~ }
 	numArray.data = msg->data;
 }
 
@@ -54,9 +50,14 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "pubKeyboard");
     ros::NodeHandle n;
 
-
     ros::Rate loop_rate(10);
-	sub_class pubKeyboard;
+    int num[4];
+    n.getParam("/ST1num1", num[0]);
+    n.getParam("/ST1num2", num[1]);
+    n.getParam("/ST1num3", num[2]);
+    n.getParam("/ST1num4", num[3]);
+	sub_class pubKeyboard(num);
+	
     while (ros::ok())
     {
 		//~ ROS_INFO("******");

@@ -6,6 +6,9 @@
 	<node pkg="rx_simulation" type="keyboardInput2" name="keyboardInput2" output="screen" respawn="true" >
 	</node>
 
-
+	<param name="/ST2num1" type="int" value="700" />
+	<param name="/ST2num2" type="int" value="300" />
+	<param name="/ST2num3" type="int" value="20" />
+	<param name="/ST2num4" type="int" value="0" />
 
 </launch>
